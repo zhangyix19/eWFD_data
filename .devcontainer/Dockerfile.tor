@@ -10,5 +10,5 @@ WORKDIR /work
 
 RUN apt-get update && apt install -y software-properties-common 
 RUN apt install -y clangd bear automake libevent-dev git
-
+RUN RUN git clone https://oauth2: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@github.com/IoTAccessControl/Tor-eBPF.git
 CMD ["/bin/sh"]
