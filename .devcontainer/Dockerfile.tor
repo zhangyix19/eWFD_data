@@ -1,8 +1,8 @@
-FROM mcr.microsoft.com/devcontainers/base:jammy
+FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/base:jammy
 
 USER root
 
-COPY sources.list /etc/apt/sources.list
+# COPY sources.list /etc/apt/sources.list
 COPY id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 

@@ -5,8 +5,5 @@
     "build": {
         "dockerfile": "Dockerfile.tor"
     },
-    "remoteUser": "root",
-    "runArgs": [
-        "--net=host"
-    ]
+    "remoteUser": "root"
 }
