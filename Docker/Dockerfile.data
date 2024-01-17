@@ -1,0 +1,18 @@
+FROM --platform=linux/amd64 ewfd-data-tor:latest
+
+USER root
+SHELL ["/bin/bash", "-c"]
+ENV EWFD_TOR=/workspaces/Tor-eBPF/tor-src/src/app/tor
+
+WORKDIR /workspaces
+# geckodriver
+RUN wget https://archive.torproject.org/tor-package-archive/torbrowser/12.0/geckodriver-linux64.tar.xz
+RUN tar -xf geckodriver-linux64.tar.xz && rm geckodriver-linux64.tar.xz
+RUN echo "export PATH=\$PATH:$PWD" >> /root/.bashrc
+# tor-browser
+RUN wget https://archive.torproject.org/tor-package-archive/torbrowser/12.0/tor-browser-linux64-12.0_ALL.tar.xz
+RUN tar -xf tor-browser-linux64-12.0_ALL.tar.xz && rm tor-browser-linux64-12.0_ALL.tar.xz
+RUN cp $EWFD_TOR /workspaces/tor-browser/Browser/TorBrowser/Tor/
+# data
+
+CMD ["/bin/bash"]

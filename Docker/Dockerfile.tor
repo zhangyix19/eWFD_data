@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ewfd-data-env:latest
+FROM --platform=linux/amd64 ewfd-data-base:latest
 
 USER root
 SHELL ["/bin/bash", "-c"]
@@ -8,4 +8,4 @@ COPY Tor-eBPF /workspaces/Tor-eBPF
 
 RUN cd /workspaces/Tor-eBPF && source conf.sh && bash tor-tools/build/build_dynamic.sh
 
-CMD ["/bin/zsh"]
+CMD ["/bin/bash"]

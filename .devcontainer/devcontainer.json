@@ -1,7 +1,15 @@
 {
     "name": "eWFD_data",
-    "build": {
-        "dockerfile": "Dockerfile.dev"
-    },
-    "remoteUser": "root"
+    "image": "ewfd-data-data:latest",
+    "remoteUser": "root",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "donjayamanne.python-extension-pack",
+                "GitHub.copilot",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "ms-python.black-formatter"
+            ]
+        }
+    }
 }
