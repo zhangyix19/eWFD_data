@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/devcontainers/base:jammy
+
+USER root
+
+COPY sources.list /etc/apt/sources.list
+COPY id_rsa /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
+
+WORKDIR /work
+
+RUN apt-get update && apt install -y software-properties-common 
+RUN apt install -y clangd bear automake libevent-dev git
+
+CMD ["/bin/sh"]
