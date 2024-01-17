@@ -1,7 +1,7 @@
 {
     "name": "eWFD_data",
     "build": {
-        "dockerfile": "Dockerfile.tor"
+        "dockerfile": "Dockerfile.dev"
     },
     "remoteUser": "root"
 }

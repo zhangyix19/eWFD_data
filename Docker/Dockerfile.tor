@@ -1,0 +1,11 @@
+FROM --platform=linux/amd64 ewfd-data-env:latest
+
+USER root
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /workspaces
+COPY Tor-eBPF /workspaces/Tor-eBPF
+
+RUN cd /workspaces/Tor-eBPF && source conf.sh && bash tor-tools/build/build_dynamic.sh
+
+CMD ["/bin/zsh"]

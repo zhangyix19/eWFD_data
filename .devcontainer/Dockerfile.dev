@@ -1,0 +1,17 @@
+FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/base:jammy
+
+USER root
+
+COPY sources.list /etc/apt/sources.list
+
+RUN apt-get update && apt install -y software-properties-common 
+RUN apt-get purge firefox
+RUN apt install -y clangd bear automake libevent-dev git firefox ethtool net-tools
+# python 3.7
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt install -y python3.7 python3-pip
+COPY requirements.txt /work/requirements.txt
+RUN pip install --no-cache-dir -r /work/requirements.txt
+
+WORKDIR /workspaces
+CMD ["/bin/zsh"]
