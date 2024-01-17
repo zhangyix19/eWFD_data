@@ -1,0 +1,3 @@
+[submodule "Tor-eBPF"]
+	path = Tor-eBPF
+	url = git@github.com:IoTAccessControl/Tor-eBPF.git
