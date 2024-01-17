@@ -7,7 +7,6 @@ outputdir=$workdir'/wfpdata/dataset_'$1'_'$2/
 urls_file=$PWD'/input/closeworld.csv'
 tbbpath=$workdir'/tor-browser'
 torrc_dir_path=$workdir'/torrcs/'
-myexip=$workdir'/myexip'
 
 echo "result_path: "$result_path
 echo "torrc_dir_path: " $torrc_dir_path
@@ -28,4 +27,4 @@ pkill tor
 rm -rf ${result_path}
 
 # Data collection
-python3 data_collector.py --scenario $2 --urls_file ${urls_file} --batch ${num_batch} --urls_openworld ${urls_openworld} --outputdir ${outputdir} --tbbpath ${tbbpath} --torrc_dir_path ${torrc_dir_path} --myexip ${myexip} ${ewfd}
+python3 data_collector.py --scenario $2 --urls_file ${urls_file} --batch ${num_batch} --urls_openworld ${urls_openworld} --outputdir ${outputdir} --tbbpath ${tbbpath} --torrc_dir_path ${torrc_dir_path} ${ewfd}

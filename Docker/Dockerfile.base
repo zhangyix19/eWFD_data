@@ -6,7 +6,7 @@ COPY sources.list /etc/apt/sources.list
 
 RUN apt-get update && apt install -y software-properties-common 
 RUN apt-get purge firefox
-RUN apt install -y clangd bear automake libevent-dev git firefox ethtool net-tools
+RUN apt install -y clangd bear automake libevent-dev git firefox ethtool net-tools tcpdump
 # python 3.7
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt install -y python3.7 python3-pip

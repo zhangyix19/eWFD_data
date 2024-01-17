@@ -26,7 +26,6 @@ if __name__ == "__main__":
     parser.add_argument("--xvfb", default=True, type=bool, help="Use XVFB (for headless testing)")
     parser.add_argument("--screenshot", default=True, type=bool, help="Capture page screenshots)")
     parser.add_argument("--torrc_dir_path", default="", type=str, help="path to torrc config dir")
-    parser.add_argument("--myexip", default="/root/myexip", type=str, help="path to myexip")
     parser.add_argument("--ewfd", action="store_true", help="enable ewfd")
 
     args = parser.parse_args()
@@ -39,7 +38,6 @@ if __name__ == "__main__":
     xvfb = args.xvfb
     screenshot = args.screenshot
     torrc_dir_path = args.torrc_dir_path
-    myexip = args.myexip
     enable_ewfd = args.ewfd
 
     assert scenario in ["cw", "ow"]
