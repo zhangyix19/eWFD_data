@@ -6,8 +6,12 @@ if [[ $2 != "cw" ]] && [[ $2 != "ow" ]]; then
 fi
 if [[ $2 == "cw" ]]; then
     urls_file=$PWD'/input/closeworld.csv'
-else
+elif [[ $2 == "ow" ]]; then
     urls_file=$PWD'/input/openworld.csv'
+elif [[$2 == "cw-test"]]; then
+    urls_file=$PWD'/input/cw-test.csv'
+elif [[$2 == "cw-notest"]]; then
+    urls_file=$PWD'/input/cw-notest.csv'
 fi
 workdir='/work'
 # Parameter

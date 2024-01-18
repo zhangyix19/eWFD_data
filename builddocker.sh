@@ -10,7 +10,5 @@ docker push zhangyix19/ewfd-data:tor
 docker push zhangyix19/ewfd-data:tbb
 docker push zhangyix19/ewfd-data:dev
 
-docker build -t zhangyix19/ewfd-data:data-undefend-cw -f Docker/data/undefend/Dockerfile.cw .
-docker build -t zhangyix19/ewfd-data:data-undefend-ow -f Docker/data/undefend/Dockerfile.ow .
-docker push zhangyix19/ewfd-data:data-undefend-cw
-docker push zhangyix19/ewfd-data:data-undefend-ow
+docker build -t zhangyix19/ewfd-data:data-undefend -f Docker/data/Dockerfile.undefended .
+docker push zhangyix19/ewfd-data:data-undefend
