@@ -20,7 +20,6 @@ if [ ! $num_batch ]; then
     num_batch='10'
 fi
 output_dir=$workdir'/wfpdata/dataset_'$1'_'$2/
-urls_file=$PWD'/input/closeworld.csv'
 tbbpath=$workdir'/tor-browser'
 torrc_dir=$workdir'/torrcs/'
 
