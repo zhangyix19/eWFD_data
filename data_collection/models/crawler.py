@@ -80,8 +80,12 @@ class Crawler:
             [f.write(i + "\n") for i in self.urls]
 
     def crawl(self, num_batches=10):
-        activate_torrc_path = None
+        torrc = None
         url_list = self.urls if num_batches > 1 else self.urls[: int(len(self.urls) * num_batches)]
+        total_time = len(url_list) * num_batches * (utils.INTERVAL_WAIT_FOR_RESTART+utils.WAIT_AFTER_DUMP+utils.WAIT_FOR_VISIT+utils.INTERVAL_BETWEEN_VISIT)
+        print("INFO\tTotal time: {} H".format(round(total_time/3600,1)))
+        end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time() + total_time ))
+        print("INFO\tEnd time: {}".format(end_time))
         num_batches = 1 if num_batches < 1 else num_batches
         # for each batch
         print(

@@ -27,8 +27,8 @@ LOCALHOST_IP = "127.0.0.1"  # default localhost IP (run 'ifconfig' in terminal)
 
 # Hyperparameter
 STREAM_CLOSE_TIMEOUT = 5  # wait 5 seconds before raising an alarm signal
-INTERVAL_BETWEEN_VISIT = 5  # Interval time between instances
-WAIT_AFTER_DUMP = 5  # Waiting time after opening dumpcap
+INTERVAL_BETWEEN_VISIT = 0  # Interval time between instances
+WAIT_AFTER_DUMP = 2  # Waiting time after opening dumpcap
 
 # BOTH < INTERVAL_DUMP - INTERVAL_WAIT_FOR_RESTART - INTERVAL_BETWEEN_VISIT
 # BOTH < SOFT_VISIT_TIMEOUT
@@ -36,7 +36,7 @@ WAIT_FOR_VISIT = 90  # Waiting time for each url
 WAIT_FOR_VISIT_ONION = 360  # Waiting time for each onion url (onion sites are slower)
 
 MAX_SITES_PER_TOR_PROCESS = 0
-SOFT_VISIT_TIMEOUT = 450  # timeout used by selenium and dumpcap
+SOFT_VISIT_TIMEOUT = 105  # timeout used by selenium and dumpcap
 HARD_VISIT_TIMEOUT = SOFT_VISIT_TIMEOUT + 10  # signal based hard timeout in case soft timeout fails
 INTERVAL_DUMP = 240  # for client-bridge sync
 INTERVAL_WAIT_FOR_RESTART = 20
