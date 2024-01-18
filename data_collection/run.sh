@@ -11,9 +11,9 @@ else
 fi
 workdir='/work'
 # Parameter
-num_batch='10'
-if [[$3 != ""]]; then
-    num_batch=$3
+num_batch=$3
+if [ ! $num_batch ]; then
+    num_batch='10'
 fi
 output_dir=$workdir'/wfpdata/dataset_'$1'_'$2/
 urls_file=$PWD'/input/closeworld.csv'
