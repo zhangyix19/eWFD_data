@@ -5,9 +5,9 @@ if [[ $2 == "cw" ]]; then
 elif [[ $2 == "ow" ]]; then
     urls_file=$PWD'/input/openworld.csv'
     scenario='ow'
-elif [[$2 == "cw-test"]]; then
+elif [[ $2 == "cw-test" ]]; then
     urls_file=$PWD'/input/cw-test.csv'
-elif [[$2 == "cw-notest"]]; then
+elif [[ $2 == "cw-notest" ]]; then
     urls_file=$PWD'/input/cw-notest.csv'
 else
     echo "run.sh <dataset_name> <open_world:cw/ow> <?num_batch>"
