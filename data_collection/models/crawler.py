@@ -74,19 +74,10 @@ class Crawler:
         with open(os.path.join(self.crawl_dir, "settings"), "w") as f:
             for torrc_path in self.torrc_paths:
                 f.write(torrc_path + "\n")
-            f.write("open_world: " + str(self.open_world) + "\n")
 
         # Dump urllist
         with open(os.path.join(self.crawl_dir, "urls-crawled.csv"), "w") as f:
-            if self.open_world:
-                [
-                    f.write(i + "\n")
-                    for i in self.urls_openworld[
-                        self.open_world_start_index : self.open_world_end_index
-                    ]
-                ]
-            else:
-                [f.write(i + "\n") for i in self.urls_closeworld]
+            [f.write(i + "\n") for i in self.urls]
 
     def crawl(self, num_batches=10):
         activate_torrc_path = None

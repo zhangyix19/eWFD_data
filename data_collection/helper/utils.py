@@ -11,7 +11,7 @@ from pyvirtualdisplay import Display
 
 # Need modify for different server
 # geckodrive_path = '/root/wfp/geckodriver'  # geckodriver path
-MY_IP = "myip"  # The host ip (run 'ifconfig' in terminal)
+MY_IP = "172.16.5.4"  # The host ip (run 'ifconfig' in terminal)
 NOISE_IP = [
     "100.100.30.25",
     "100.100.30.26",
