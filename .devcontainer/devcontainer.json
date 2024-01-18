@@ -1,6 +1,6 @@
 {
     "name": "eWFD_data",
-    "image": "ewfd-data-data:latest",
+    "image": "zhangyix19/ewfd-data:dev",
     "remoteUser": "root",
     "customizations": {
         "vscode": {
