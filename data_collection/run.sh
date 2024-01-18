@@ -1,17 +1,17 @@
 source ip.sh
-if [[ $2 != "cw" ]] && [[ $2 != "ow" ]]; then
-    echo "Invalid scenario: "$2
-    echo "run.sh <dataset_name> <open_world:cw/ow> <?num_batch>"
-    exit 1
-fi
+scenario='cw'
 if [[ $2 == "cw" ]]; then
     urls_file=$PWD'/input/closeworld.csv'
 elif [[ $2 == "ow" ]]; then
     urls_file=$PWD'/input/openworld.csv'
+    scenario='ow'
 elif [[$2 == "cw-test"]]; then
     urls_file=$PWD'/input/cw-test.csv'
 elif [[$2 == "cw-notest"]]; then
     urls_file=$PWD'/input/cw-notest.csv'
+else
+    echo "run.sh <dataset_name> <open_world:cw/ow> <?num_batch>"
+    exit 1
 fi
 workdir='/work'
 # Parameter
@@ -44,4 +44,4 @@ pkill tor
 rm -rf ${output_dir}
 
 # Data collection
-python3 data_collector.py --scenario $2 --urls_file ${urls_file} --batch ${num_batch} --output_dir ${output_dir} --tbbpath ${tbbpath} --torrc_dir ${torrc_dir} ${ewfd}
+python3 data_collector.py --scenario ${scenario} --urls_file ${urls_file} --batch ${num_batch} --output_dir ${output_dir} --tbbpath ${tbbpath} --torrc_dir ${torrc_dir} ${ewfd}
