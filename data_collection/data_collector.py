@@ -2,6 +2,7 @@ import os
 import sys
 
 sys.path.append(".")
+sys.path.append("models")
 from models.crawler import Crawler
 import helper.utils as utils
 import helper.log as log
