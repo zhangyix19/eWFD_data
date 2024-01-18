@@ -1,10 +1,20 @@
+source ip.sh
 if [[ $2 != "cw" ]] && [[ $2 != "ow" ]]; then
-    echo "run.sh <dataset_name> <open_world:cw/ow>"
+    echo "Invalid scenario: "$2
+    echo "run.sh <dataset_name> <open_world:cw/ow> <?num_batch>"
     exit 1
+fi
+if [[ $2 == "cw" ]]; then
+    urls_file=$PWD'/input/closeworld.csv'
+else
+    urls_file=$PWD'/input/openworld.csv'
 fi
 workdir='/work'
 # Parameter
 num_batch='10'
+if [[$3 != ""]]; then
+    num_batch=$3
+fi
 output_dir=$workdir'/wfpdata/dataset_'$1'_'$2/
 urls_file=$PWD'/input/closeworld.csv'
 tbbpath=$workdir'/tor-browser'

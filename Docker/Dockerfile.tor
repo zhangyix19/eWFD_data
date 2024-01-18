@@ -4,8 +4,8 @@ USER root
 SHELL ["/bin/bash", "-c"]
 
 WORKDIR /work
-COPY Tor-eBPF /work/Tor-eBPF
+COPY Tor-eBPF Tor-eBPF
 
-RUN cd /work/Tor-eBPF && source conf.sh && bash tor-tools/build/build_dynamic.sh
+RUN cd Tor-eBPF && source conf.sh && bash tor-tools/build/build_dynamic.sh
 
 CMD ["/bin/bash"]

@@ -11,7 +11,7 @@ from pyvirtualdisplay import Display
 
 # Need modify for different server
 # geckodrive_path = '/root/wfp/geckodriver'  # geckodriver path
-MY_IP = "172.16.5.4"  # The host ip (run 'ifconfig' in terminal)
+MY_IP = "myip"  # The host ip (run 'ifconfig' in terminal)
 NOISE_IP = [
     "100.100.30.25",
     "100.100.30.26",
@@ -32,14 +32,14 @@ WAIT_AFTER_DUMP = 5  # Waiting time after opening dumpcap
 
 # BOTH < INTERVAL_DUMP - INTERVAL_WAIT_FOR_RESTART - INTERVAL_BETWEEN_VISIT
 # BOTH < SOFT_VISIT_TIMEOUT
-WAIT_FOR_VISIT = 180  # Waiting time for each url
+WAIT_FOR_VISIT = 90  # Waiting time for each url
 WAIT_FOR_VISIT_ONION = 360  # Waiting time for each onion url (onion sites are slower)
 
 MAX_SITES_PER_TOR_PROCESS = 0
 SOFT_VISIT_TIMEOUT = 450  # timeout used by selenium and dumpcap
 HARD_VISIT_TIMEOUT = SOFT_VISIT_TIMEOUT + 10  # signal based hard timeout in case soft timeout fails
 INTERVAL_DUMP = 240  # for client-bridge sync
-INTERVAL_WAIT_FOR_RESTART = 30
+INTERVAL_WAIT_FOR_RESTART = 20
 # Constant
 DEFAULT_SOCKS_PORT = 9050  # SYSTEM TOR PORTS
 DEFAULT_CONTROL_PORT = 9051
@@ -169,6 +169,7 @@ def readtorrc(torrc):
             if line[0] not in conf:
                 conf[line[0]] = []
             conf[line[0]].append(line[1])
+        conf["DataDirectory"] = "/tmp/tor"
     return content,conf
 
 
