@@ -8,4 +8,4 @@ COPY torrc/torrc.default torrcs/torrc
 COPY data_collection data_collection
 
 WORKDIR /work/data_collection
-CMD ["/bin/bash","tor","cw"]
+CMD ["/bin/bash","run.sh","tor","cw","10"]
