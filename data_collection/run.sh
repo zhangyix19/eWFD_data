@@ -1,6 +1,6 @@
 echo "run.sh <dataset_name> <open_world:cw/ow>"
 
-$workdir='/workspaces'
+$workdir='/work'
 # Parameter
 num_batch='10'
 outputdir=$workdir'/wfpdata/dataset_'$1'_'$2/
