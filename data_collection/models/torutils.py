@@ -53,7 +53,7 @@ class TorController(object):
     def tor_log_handler(self, line):
         log.wl_log.info(term.format(line))
 
-    def restart_tor(self, tor_config, sleep_time=utils.TOR_RESTART_WAIT_TIME):
+    def restart_tor(self, tor_config, sleep_time=utils.INTERVAL_WAIT_FOR_RESTART):
         """Kill current Tor process and run a new one."""
         self.kill_tor_proc()
         self.launch_tor_service(tor_config)
