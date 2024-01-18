@@ -20,13 +20,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--batch", default="1", type=str, help="Number of batches, for cw int, for ow float < 1"
     )
-    parser.add_argument("--outputdir", default="outputdir", type=str)
+    parser.add_argument("--output_dir", default="output_dir", type=str)
     parser.add_argument(
         "--tbbpath", default="../tbb/tor-browser_zh-CN", type=str, help="Path of tbb"
     )
     parser.add_argument("--xvfb", default=True, type=bool, help="Use XVFB (for headless testing)")
     parser.add_argument("--screenshot", default=True, type=bool, help="Capture page screenshots)")
-    parser.add_argument("--torrc_dir_path", default="", type=str, help="path to torrc config dir")
+    parser.add_argument("--torrc_dir", default="", type=str, help="path to torrc config dir")
     parser.add_argument("--ewfd", action="store_true", help="enable ewfd")
 
     args = parser.parse_args()
@@ -34,11 +34,11 @@ if __name__ == "__main__":
     scenario = args.scenario
     urls_file = args.urls_file
     num_batches = args.batch
-    output = args.output
+    output_dir = args.output_dir
     tbb_path = args.tbbpath
     xvfb = args.xvfb
     screenshot = args.screenshot
-    torrc_dir_path = args.torrc_dir_path
+    torrc_dir = args.torrc_dir
     enable_ewfd = args.ewfd
 
     assert scenario in ["cw", "ow"]
@@ -55,12 +55,12 @@ if __name__ == "__main__":
     with open(urls_file, "r") as fp:
         urls = fp.read().splitlines()
     random.shuffle(urls)
-    assert os.path.isdir(torrc_dir_path)
+    assert os.path.isdir(torrc_dir)
     torrc_paths = [
-        os.path.join(torrc_dir_path, torrc_path) for torrc_path in os.listdir(torrc_dir_path)
+        os.path.join(torrc_dir, torrc_path) for torrc_path in os.listdir(torrc_dir)
     ]
     # init crawler
-    crawler = Crawler(urls, torrc_paths, tbb_path, output, xvfb, screenshot, enable_ewfd)
+    crawler = Crawler(urls, torrc_paths, tbb_path, output_dir, xvfb, screenshot, enable_ewfd)
     print("INFO\tInit crawler finish in {}".format(utils.cal_now_time()))
     print("INFO\tCommand line parameters: %s" % sys.argv)
 

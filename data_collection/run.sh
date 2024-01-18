@@ -8,11 +8,11 @@ num_batch='10'
 output_dir=$workdir'/wfpdata/dataset_'$1'_'$2/
 urls_file=$PWD'/input/closeworld.csv'
 tbbpath=$workdir'/tor-browser'
-torrc_dir_path=$workdir'/torrcs/'
+torrc_dir=$workdir'/torrcs/'
 
 echo "workdir: "$workdir
 echo "output_dir: "$output_dir
-echo "torrc_dir_path: " $torrc_dir_path
+echo "torrc_dir: " $torrc_dir
 echo "num_batch: " $num_batch
 
 if [[ $1 =~ "ewfd" ]]; then
@@ -30,4 +30,4 @@ pkill tor
 rm -rf ${result_path}
 
 # Data collection
-python3 data_collector.py --scenario $2 --urls_file ${urls_file} --batch ${num_batch} --urls_openworld ${urls_openworld} --output_dir ${output_dir} --tbbpath ${tbbpath} --torrc_dir_path ${torrc_dir_path} ${ewfd}
+python3 data_collector.py --scenario $2 --urls_file ${urls_file} --batch ${num_batch} --output_dir ${output_dir} --tbbpath ${tbbpath} --torrc_dir ${torrc_dir} ${ewfd}
