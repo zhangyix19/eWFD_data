@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ewfd-data-tbb:latest
+FROM --platform=linux/amd64 zhangyix19/ewfd-data:tbb
 
 USER root
 SHELL ["/bin/bash", "-c"]

@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ewfd-data-tor:latest
+FROM --platform=linux/amd64 zhangyix19/ewfd-data:tor
 
 USER root
 SHELL ["/bin/bash", "-c"]

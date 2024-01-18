@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ewfd-data-base:latest
+FROM --platform=linux/amd64 zhangyix19/ewfd-data:base
 
 USER root
 SHELL ["/bin/bash", "-c"]
