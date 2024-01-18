@@ -11,7 +11,7 @@ RUN echo "export PATH=\$PATH:$PWD" >> /root/.bashrc
 # tor-browser
 RUN wget https://archive.torproject.org/tor-package-archive/torbrowser/12.0/tor-browser-linux64-12.0_ALL.tar.xz
 RUN tar -xf tor-browser-linux64-12.0_ALL.tar.xz && rm tor-browser-linux64-12.0_ALL.tar.xz
-RUN cp Tor-eBPF/tor-src/src/app/tor  /tor-browser/Browser/TorBrowser/Tor/
+RUN cp Tor-eBPF/tor-src/src/app/tor  tor-browser/Browser/TorBrowser/Tor/
 # data
 
 CMD ["/bin/bash"]
