@@ -27,7 +27,7 @@ fi
 pkill tor
 
 # remove data
-rm -rf ${result_path}
+rm -rf ${output_dir}
 
 # Data collection
 python3 data_collector.py --scenario $2 --urls_file ${urls_file} --batch ${num_batch} --output_dir ${output_dir} --tbbpath ${tbbpath} --torrc_dir ${torrc_dir} ${ewfd}
