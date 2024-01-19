@@ -44,3 +44,6 @@ rm -rf ${output_dir}
 
 # Data collection
 python3 data_collector.py --scenario ${scenario} --urls_file ${urls_file} --batch ${num_batch} --output_dir ${output_dir} --tbbpath ${tbbpath} --torrc_dir ${torrc_dir} ${ewfd}
+
+# tar
+cd $workdir'/wfpdata/' && tar -czvf dataset.tar.gz 'dataset_'$1'_'$2
