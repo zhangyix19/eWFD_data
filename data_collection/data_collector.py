@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     if scenario == "cw":
         num_batches = int(num_batches)
-        assert num_batches > 1
+        assert num_batches >= 1
     elif scenario == "ow":
         num_batches = float(num_batches)
         assert num_batches < 1 and num_batches > 0
