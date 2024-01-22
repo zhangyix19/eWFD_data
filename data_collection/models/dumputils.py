@@ -63,8 +63,11 @@ class Sniffer(object):
 
     def stop_capture(self):
         """Kill the tcpdump process."""
-        utils.kill_all_children(self.p0.pid)  # self.p0.pid is the shell pid
-        self.p0.kill()
+        try:
+            utils.kill_all_children(self.p0.pid)  # self.p0.pid is the shell pid
+            self.p0.kill()
+        except:
+            print("ERROR\tException while killing tcpdump process.")
         self.is_recording = False
         if os.path.isfile(self.pcap_file):
             log.wl_log.info('Tcpdump killed. Capture size: %s Bytes %s' %
