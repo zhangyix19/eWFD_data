@@ -135,8 +135,13 @@ def gen_all_children_procs(parent_pid):
 
 def kill_all_children(parent_pid):
     """Kill all child process of a given parent."""
-    for child in gen_all_children_procs(parent_pid):
-        child.kill()
+    # check if parent_pid is a valid pid
+    try:
+        for child in gen_all_children_procs(parent_pid):
+            child.kill()
+    except psutil.NoSuchProcess:
+        print("ERROR\tNo such process: {}".format(parent_pid))
+    
 
 
 def raise_signal(signum, frame):
