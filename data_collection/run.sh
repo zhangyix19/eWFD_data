@@ -17,7 +17,7 @@ workdir='/work'
 # Parameter
 num_batch=$3
 if [ ! $num_batch ]; then
-    num_batch='10'
+    num_batch='15'
 fi
 output_dir=$workdir'/wfpdata/dataset_'$1'_'$2/
 tbbpath=$workdir'/tor-browser'
